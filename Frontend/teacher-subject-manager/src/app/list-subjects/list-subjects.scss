@@ -1,0 +1,303 @@
+.header {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.second {
+  margin-top: 10px;
+
+  mat-form-field {
+    width: 300px;
+  }
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+
+  button {
+    margin-bottom: 15px;
+    background-color: transparent;
+    color: white;
+    border: 0;
+    height: 30px;
+    width: 30px;
+
+    mat-icon {
+      position: relative;
+      right: 4px;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+}
+
+.connect-button {
+  background-color: #2c77da;
+  color: white;
+  transition: all 0.5s ease-out;
+
+  &:hover {
+    background-color: #103f79;
+  }
+}
+
+.subject-header {
+  display: flex;
+  align-items: center;
+}
+
+.subject-info {
+  flex: 1;
+}
+
+.edit-btn {
+  span {
+    font-weight: 800 !important;
+  }
+}
+
+.subject-header img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+.create-button {
+  background-color: #77d460;
+  color: white;
+  transition: all 0.5s ease-out;
+
+  &:hover {
+    background-color: #257910;
+  }
+}
+
+.my-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+mat-progress-spinner {
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+mat-card {
+  width: 380px;
+  transition: transform 0.4s;
+
+  &:hover {
+    transform: translateY(-8px);
+  }
+
+  mat-divider {
+    margin: 10px 0;
+  }
+
+  mat-card-title {
+    font-weight: 800;
+  }
+
+  mat-card-content {
+    p {
+      font-weight: 600;
+    }
+
+    span {
+      font-weight: 300;
+    }
+  }
+
+  img {
+    border-radius: 20px;
+  }
+
+  .exam-icon {
+    font-size: 1.4em;
+    position: relative;
+    top: 0.5em;
+  }
+}
+
+@media (min-width: 375px) {
+  mat-card {
+    width: 450px;
+  }
+}
+
+@media (min-width: 1400px) {
+  mat-card {
+    width: 430px;
+  }
+}
+
+@media (min-width: 1600px) {
+  mat-card {
+    width: 340px;
+  }
+}
+
+.subject-id {
+  font-size: 0.8em;
+  color: grey;
+}
+
+#clear {
+  clear: both;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.edit-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: medium;
+    font-weight: 500;
+  }
+}
+
+/* colors */
+
+mat-card {
+  background: black !important;
+  color: white !important;
+
+  mat-card-title,
+  mat-card-subtitle,
+  mat-card-content {
+    color: white !important;
+  }
+
+  mat-card-subtitle {
+    color: rgba(255, 255, 255, 0.65) !important;
+  }
+
+  mat-divider {
+    border-top-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .teacher-id {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  mat-icon {
+    color: white;
+  }
+}
+
+/* COLORS */
+
+mat-card {
+  background: rgba(15, 23, 42, 0.55) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  color: white !important;
+
+  mat-card-title,
+  mat-card-content {
+    color: white !important;
+  }
+
+  mat-card-subtitle {
+    color: rgba(255, 255, 255, 0.65) !important;
+  }
+
+  mat-divider {
+    border-top-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* COLOR */
+
+::ng-deep {
+  // Input szöveg
+
+  input.mat-mdc-input-element {
+    color: white !important;
+
+    caret-color: white !important;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6) !important;
+
+      opacity: 1;
+    }
+  }
+
+  // Label
+
+  .mat-mdc-form-field {
+    .mdc-floating-label {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    // Hint
+
+    .mat-mdc-form-field-hint {
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    // Icon
+
+    mat-icon {
+      color: white !important;
+    }
+  }
+
+  // Input border
+
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    border-color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  // Hover esetén se változzon
+
+  .mdc-text-field:hover {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: rgba(255, 255, 255, 0.6) !important;
+    }
+  }
+
+  // Focus
+
+  .mdc-text-field--focused {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: white !important;
+    }
+  }
+
+  // Checkbox
+
+  .mdc-form-field {
+    color: white !important;
+  }
+
+  .mdc-label {
+    color: white !important;
+  }
+}

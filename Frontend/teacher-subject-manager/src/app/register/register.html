@@ -1,0 +1,68 @@
+<div class="my-container">
+  <div class="header">
+    <h1>Register</h1>
+  </div>
+
+  <div class="forms">
+    <mat-form-field appearance="outline">
+      <mat-label>First name</mat-label>
+      <input matInput [(ngModel)]="this.registerModel.firstName" />
+      <mat-icon matSuffix>text_fields</mat-icon>
+      <mat-hint>Requested password</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Last name</mat-label>
+      <input matInput [(ngModel)]="this.registerModel.lastName" />
+      <mat-icon matSuffix>text_fields</mat-icon>
+      <mat-hint>Your last name</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email address</mat-label>
+      <input matInput [(ngModel)]="this.registerModel.email" [formControl]="this.email" />
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-hint>You valid and working email address</mat-hint>
+      <mat-error *ngIf="this.email.invalid">{{ getEmailErrorMessage }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        [type]="hide() ? 'password' : 'text'"
+        matInput
+        [(ngModel)]="this.registerModel.password"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        type="button"
+        (click)="clickEvent($event)"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide()"
+      >
+        <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <mat-hint>Your password used during registration</mat-hint>
+    </mat-form-field>
+
+    <mat-checkbox [(ngModel)]="this.acceptTermsAndConditions">
+      <span>Accept terms and conditions</span>
+    </mat-checkbox>
+  </div>
+
+  <div class="register-link">
+    <h3>Already have an account? <a [routerLink]="['/login']">Login here!</a></h3>
+  </div>
+
+  <div class="actions">
+    <button
+      mat-flat-button
+      color="accent"
+      (click)="sendRegisterCredentials()"
+      [disabled]="!canRegister"
+    >
+      Register
+    </button>
+  </div>
+</div>

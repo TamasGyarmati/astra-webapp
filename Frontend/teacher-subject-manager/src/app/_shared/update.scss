@@ -1,0 +1,139 @@
+h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.my-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  mat-form-field {
+    width: 30vw;
+    max-width: 90%;
+  }
+
+  .create-button {
+    background-color: #77d460;
+    color: white;
+    transition: all 0.5s ease-out;
+
+    &:hover {
+      background-color: #257910;
+    }
+  }
+
+  .delete-button {
+    background-color: #d32f2f;
+    color: white;
+    transition: all 0.5s ease-out;
+
+    &:hover {
+      background-color: #881111;
+    }
+
+    &:disabled {
+      background-color: #bdbdbd;
+      color: #757575;
+    }
+  }
+
+  .edit-button {
+    background-color: #ffc83e;
+    color: white;
+    transition: all 0.5s ease-out;
+
+    &:hover {
+      background-color: #c79003;
+    }
+  }
+}
+
+/* COLOR */
+
+::ng-deep {
+  // Input szöveg
+
+  input.mat-mdc-input-element {
+    color: white !important;
+
+    caret-color: white !important;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6) !important;
+
+      opacity: 1;
+    }
+  }
+
+  // Label
+
+  .mat-mdc-form-field {
+    .mdc-floating-label {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    // Hint
+
+    .mat-mdc-form-field-hint {
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    // Icon
+
+    mat-icon {
+      color: white !important;
+    }
+  }
+
+  // Input border
+
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    border-color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  // Hover esetén se változzon
+
+  .mdc-text-field:hover {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: rgba(255, 255, 255, 0.6) !important;
+    }
+  }
+
+  // Focus
+
+  .mdc-text-field--focused {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: white !important;
+    }
+  }
+
+  // Checkbox
+
+  .mdc-form-field {
+    color: white !important;
+  }
+
+  .mdc-label {
+    color: white !important;
+  }
+}

@@ -1,0 +1,76 @@
+i {
+  font-weight: 100;
+  color: transparent;
+  background: linear-gradient(#0d4559, #6693f4);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.my-container {
+  margin-top: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 80px;
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    h1 {
+      margin: 0 auto;
+      font-size: 60px;
+    }
+
+    h3 {
+      margin: 0 auto;
+      font-size: 20px;
+    }
+  }
+
+  .firstP {
+    font-weight: 200;
+  }
+
+  .secondP {
+    font-weight: 600;
+  }
+
+  mat-divider {
+    align-self: stretch;
+    width: 100%;
+  }
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-card-footer {
+  padding: 16px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+
+  mat-card {
+    width: 400px;
+    transition: all 0.5s;
+    background: black;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    span {
+      color: white;
+    }
+  }
+}

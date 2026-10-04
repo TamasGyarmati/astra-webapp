@@ -1,0 +1,108 @@
+h1 {
+  margin-top: 20vh;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+
+  .add-btn {
+    background-color: #77d460;
+  }
+
+  .delete-btn {
+    background-color: #d32f2f;
+  }
+
+  button {
+    width: 130px;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+}
+
+.my-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+mat-form-field,
+mat-checkbox {
+  width: 100%;
+}
+
+mat-select {
+  color: white;
+}
+
+mat-divider {
+  margin: 50px 0;
+}
+
+::ng-deep {
+  // Input szöveg
+
+  input.mat-mdc-input-element {
+    color: white !important;
+
+    caret-color: white !important;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6) !important;
+
+      opacity: 1;
+    }
+  }
+
+  // Label
+
+  .mat-mdc-form-field {
+    .mdc-floating-label {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+  }
+
+  // Input border
+
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    border-color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  // Hover esetén se változzon
+
+  .mdc-text-field:hover {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: rgba(255, 255, 255, 0.6) !important;
+    }
+  }
+
+  // Focus
+
+  .mdc-text-field--focused {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: white !important;
+    }
+  }
+
+  // Checkbox
+
+  .mdc-form-field {
+    color: white !important;
+  }
+
+  .mdc-label {
+    color: white !important;
+  }
+}

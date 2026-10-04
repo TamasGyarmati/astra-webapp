@@ -1,0 +1,64 @@
+$mat-menu-icon-size: 18px;
+
+.mat-mdc-menu-item .mat-icon {
+  width: $mat-menu-icon-size !important;
+  font-size: $mat-menu-icon-size !important;
+  height: $mat-menu-icon-size !important;
+}
+
+button {
+  border: 0;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+mat-menu {
+  opacity: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 10px;
+
+  button {
+    color: white;
+  }
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  color: white;
+
+  p {
+    margin: 0;
+  }
+
+  mat-icon {
+    transform: scale(0.4);
+    color: rgb(45, 240, 45);
+    margin-right: 10px;
+  }
+}
+
+.blink-smooth {
+  animation: blink_smooth 2s infinite;
+}
+
+@keyframes blink_smooth {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
