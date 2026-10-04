@@ -1,0 +1,80 @@
+@Students.App_HostAddress = http://localhost:5500
+@id = 00000000-0000-0000-0000-000000000001
+
+### GetStudents
+GET {{Students.App_HostAddress}}/api/students
+Accept: application/json
+
+### GetStudentById
+GET {{Students.App_HostAddress}}/api/students/{{id}}
+Accept: application/json
+
+### CreateStudent
+POST {{Students.App_HostAddress}}/api/students
+Content-Type: application/json
+
+{
+  "name": "Kiss Anna",
+  "isActive": true,
+  "birthYear": 2003,
+  "connections": 2,
+  "completedCredits": 84,
+  "activeSemesterCount": 5,
+  "image": "https://example.com/anna.jpg"
+}
+
+### UpdateStudent
+PUT {{Students.App_HostAddress}}/api/students/{{id}}
+Content-Type: application/json
+
+{
+  "name": "Kiss Anna",
+  "isActive": false,
+  "birthYear": 2003,
+  "connections": 3,
+  "completedCredits": 90,
+  "activeSemesterCount": 6,
+  "image": "https://example.com/anna.jpg"
+}
+
+### DeleteStudent
+DELETE {{Students.App_HostAddress}}/api/students/{{id}}
+
+### GetSubjects
+GET {{Students.App_HostAddress}}/api/subjects
+Accept: application/json
+
+### GetSubjectById
+GET {{Students.App_HostAddress}}/api/subjects/{{id}}
+Accept: application/json
+
+### CreateSubject
+POST {{Students.App_HostAddress}}/api/subjects
+Content-Type: application/json
+
+{
+  "name": "Webfejlesztés",
+  "neptun": "WEB4A1",
+  "credit": 5,
+  "exam": true,
+  "image": "https://fastly.picsum.photos/id/1/400/300.jpg",
+  "creatorName": "Kiss Anna",
+  "registeredStudents": 42
+}
+
+### UpdateSubject
+PUT {{Students.App_HostAddress}}/api/subjects/{{id}}
+Content-Type: application/json
+
+{
+  "name": "Webfejlesztés",
+  "neptun": "WEB4A1",
+  "credit": 6,
+  "exam": true,
+  "image": "https://fastly.picsum.photos/id/1/400/300.jpg",
+  "creatorName": "Kiss Anna",
+  "registeredStudents": 50
+}
+
+### DeleteSubject
+DELETE {{Students.App_HostAddress}}/api/subjects/{{id}}
