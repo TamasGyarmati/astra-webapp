@@ -125,7 +125,7 @@ The backend connects to SQL Server. The easiest option is to run it in Docker:
 
 ```bash
 docker run -d --name sqlserver \
-  -e "MSSQL_SA_PASSWORD=YourStrong!Passw0rd" \
+  -e "MSSQL_SA_PASSWORD=[your_password_goes_here]" \
   -e "ACCEPT_EULA=Y" \
   -p 1433:1433 \
   mcr.microsoft.com/mssql/server:2022-latest
@@ -134,7 +134,7 @@ docker run -d --name sqlserver \
 This matches the connection string in `appsettings.json`:
 
 ```json
-"DefaultConnection": "Server=localhost,1433;Database=SocialMediaDatabase;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True;"
+"DefaultConnection": "Server=localhost,1433;Database=[your_db_goes_here];User Id=sa;Password=[your_password_goes_here];TrustServerCertificate=True;"
 ```
 
 If you use a different password or port, edit `Backend/Students/Students.App/appsettings.json`. If the container already exists, this is enough:
