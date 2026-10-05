@@ -1,76 +1,59 @@
 .header {
-  margin-bottom: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
+  margin-bottom: 30px;
 
-.second {
-  margin-top: 10px;
-
-  mat-form-field {
-    width: 300px;
+  .first {
+    .actions {
+      display: flex;
+      gap: 15px;
+    }
   }
 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
+  .second {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
 
-  button {
-    margin-bottom: 15px;
-    background-color: transparent;
-    color: white;
-    border: 0;
-    height: 30px;
-    width: 30px;
+    mat-form-field {
+      width: 300px;
+    }
 
-    mat-icon {
-      position: relative;
-      right: 4px;
+    .clear {
+      width: 30px;
+      height: 30px;
+      margin-bottom: 15px;
+      background-color: transparent;
+      color: white;
+      border: 0;
+
+      mat-icon {
+        position: relative;
+        right: 4px;
+      }
     }
   }
 }
 
-.actions {
-  display: flex;
-  gap: 15px;
-}
-
-.connect-button {
-  background-color: #2c77da;
+.connect-button,
+.create-button {
   color: white;
-  transition: all 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
 
   &:hover {
     background-color: #103f79;
   }
 }
 
-.subject-header {
-  display: flex;
-  align-items: center;
+.connect-button {
+  background-color: #2c77da;
 }
 
-.subject-info {
-  flex: 1;
-}
-
-.edit-btn {
-  span {
-    font-weight: 800 !important;
-  }
-}
-
-.subject-header img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-}
 .create-button {
   background-color: #77d460;
-  color: white;
-  transition: all 0.5s ease-out;
 
   &:hover {
     background-color: #257910;
@@ -81,83 +64,71 @@
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
-}
 
-mat-progress-spinner {
-  margin: 0 auto;
-  margin-top: 100px;
-}
+  mat-card {
+    width: 380px;
+    background: rgba(15, 23, 42, 0.55) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: white !important;
+    transition: transform 0.4s;
 
-mat-card {
-  width: 380px;
-  transition: transform 0.4s;
-
-  &:hover {
-    transform: translateY(-8px);
-  }
-
-  mat-divider {
-    margin: 10px 0;
-  }
-
-  mat-card-title {
-    font-weight: 800;
-  }
-
-  mat-card-content {
-    p {
-      font-weight: 600;
+    &:hover {
+      transform: translateY(-8px);
     }
 
-    span {
-      font-weight: 300;
+    .subject-header {
+      display: flex;
+      align-items: center;
+
+      .subject-info {
+        flex: 1;
+      }
+
+      img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+    }
+
+    mat-card-title {
+      font-weight: 800;
+      color: white !important;
+    }
+
+    mat-card-subtitle {
+      color: rgba(255, 255, 255, 0.65) !important;
+    }
+
+    mat-card-content {
+      color: white !important;
+
+      p {
+        font-weight: 600;
+      }
+
+      span {
+        font-weight: 300;
+      }
+
+      .exam-icon {
+        position: relative;
+        top: 0.5em;
+        font-size: 1.4em;
+      }
+    }
+
+    mat-divider {
+      margin: 10px 0;
+      border-top-color: rgba(255, 255, 255, 0.15);
+    }
+
+    mat-icon {
+      color: white;
     }
   }
-
-  img {
-    border-radius: 20px;
-  }
-
-  .exam-icon {
-    font-size: 1.4em;
-    position: relative;
-    top: 0.5em;
-  }
-}
-
-@media (min-width: 375px) {
-  mat-card {
-    width: 450px;
-  }
-}
-
-@media (min-width: 1400px) {
-  mat-card {
-    width: 430px;
-  }
-}
-
-@media (min-width: 1600px) {
-  mat-card {
-    width: 340px;
-  }
-}
-
-.subject-id {
-  font-size: 0.8em;
-  color: grey;
-}
-
-#clear {
-  clear: both;
-}
-
-.green {
-  color: green;
-}
-
-.red {
-  color: red;
 }
 
 .edit-btn {
@@ -170,134 +141,100 @@ mat-card {
   span {
     font-family: 'DM Sans', sans-serif;
     font-size: medium;
-    font-weight: 500;
+    font-weight: 800 !important;
   }
 }
 
-/* colors */
-
-mat-card {
-  background: black !important;
-  color: white !important;
-
-  mat-card-title,
-  mat-card-subtitle,
-  mat-card-content {
-    color: white !important;
-  }
-
-  mat-card-subtitle {
-    color: rgba(255, 255, 255, 0.65) !important;
-  }
-
-  mat-divider {
-    border-top-color: rgba(255, 255, 255, 0.2);
-  }
-
-  .teacher-id {
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  mat-icon {
-    color: white;
-  }
+.subject-id {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-/* COLORS */
-
-mat-card {
-  background: rgba(15, 23, 42, 0.55) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  color: white !important;
-
-  mat-card-title,
-  mat-card-content {
-    color: white !important;
-  }
-
-  mat-card-subtitle {
-    color: rgba(255, 255, 255, 0.65) !important;
-  }
-
-  mat-divider {
-    border-top-color: rgba(255, 255, 255, 0.15);
-  }
+.green {
+  color: green;
 }
 
-/* COLOR */
+.red {
+  color: red;
+}
+
+mat-progress-spinner {
+  margin: 100px auto 0;
+}
 
 ::ng-deep {
-  // Input szöveg
-
   input.mat-mdc-input-element {
     color: white !important;
-
     caret-color: white !important;
 
     &::placeholder {
       color: rgba(255, 255, 255, 0.6) !important;
-
       opacity: 1;
     }
   }
-
-  // Label
 
   .mat-mdc-form-field {
     .mdc-floating-label {
       color: rgba(255, 255, 255, 0.8) !important;
     }
 
-    // Hint
-
     .mat-mdc-form-field-hint {
       color: rgba(255, 255, 255, 0.6) !important;
     }
-
-    // Icon
 
     mat-icon {
       color: white !important;
     }
   }
 
-  // Input border
-
-  .mdc-notched-outline__leading,
-  .mdc-notched-outline__notch,
-  .mdc-notched-outline__trailing {
-    border-color: rgba(255, 255, 255, 0.6) !important;
-  }
-
-  // Hover esetén se változzon
-
-  .mdc-text-field:hover {
-    .mdc-notched-outline__leading,
-    .mdc-notched-outline__notch,
-    .mdc-notched-outline__trailing {
+  .mdc-notched-outline {
+    &__leading,
+    &__notch,
+    &__trailing {
       border-color: rgba(255, 255, 255, 0.6) !important;
     }
   }
 
-  // Focus
-
-  .mdc-text-field--focused {
-    .mdc-notched-outline__leading,
-    .mdc-notched-outline__notch,
-    .mdc-notched-outline__trailing {
-      border-color: white !important;
+  .mdc-text-field:hover {
+    .mdc-notched-outline {
+      &__leading,
+      &__notch,
+      &__trailing {
+        border-color: rgba(255, 255, 255, 0.6) !important;
+      }
     }
   }
 
-  // Checkbox
-
-  .mdc-form-field {
-    color: white !important;
+  .mdc-text-field--focused {
+    .mdc-notched-outline {
+      &__leading,
+      &__notch,
+      &__trailing {
+        border-color: white !important;
+      }
+    }
   }
 
+  .mdc-form-field,
   .mdc-label {
     color: white !important;
+  }
+}
+
+@media (min-width: 375px) {
+  .my-container mat-card {
+    width: 450px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .my-container mat-card {
+    width: 430px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .my-container mat-card {
+    width: 340px;
   }
 }

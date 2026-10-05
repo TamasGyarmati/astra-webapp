@@ -4,8 +4,7 @@ h1 {
 }
 
 mat-progress-spinner {
-  margin: 0 auto;
-  margin-top: 100px;
+  margin: 100px auto 0;
 }
 
 .checkboxes {
@@ -31,9 +30,15 @@ mat-progress-spinner {
     max-width: 90%;
   }
 
-  .go-back-btn {
-    transition: all 0.5s ease-out;
+  .go-back-btn,
+  .create-button,
+  .delete-button,
+  .edit-button {
+    color: white;
+    transition: background-color 0.5s ease-out;
+  }
 
+  .go-back-btn {
     &:hover {
       background-color: #0c315e;
     }
@@ -41,8 +46,6 @@ mat-progress-spinner {
 
   .create-button {
     background-color: #77d460;
-    color: white;
-    transition: all 0.5s ease-out;
 
     &:hover {
       background-color: #257910;
@@ -51,8 +54,6 @@ mat-progress-spinner {
 
   .delete-button {
     background-color: #d32f2f;
-    color: white;
-    transition: all 0.5s ease-out;
 
     &:hover {
       background-color: #881111;
@@ -66,8 +67,6 @@ mat-progress-spinner {
 
   .edit-button {
     background-color: #ffc83e;
-    color: white;
-    transition: all 0.5s ease-out;
 
     &:hover {
       background-color: #c79003;
@@ -75,77 +74,60 @@ mat-progress-spinner {
   }
 }
 
-/* COLOR */
-
 ::ng-deep {
-  // Input szöveg
-
   input.mat-mdc-input-element {
     color: white !important;
-
     caret-color: white !important;
 
     &::placeholder {
       color: rgba(255, 255, 255, 0.6) !important;
-
       opacity: 1;
     }
   }
-
-  // Label
 
   .mat-mdc-form-field {
     .mdc-floating-label {
       color: rgba(255, 255, 255, 0.8) !important;
     }
 
-    // Hint
-
     .mat-mdc-form-field-hint {
       color: rgba(255, 255, 255, 0.6) !important;
     }
-
-    // Icon
 
     mat-icon {
       color: white !important;
     }
   }
 
-  // Input border
-
-  .mdc-notched-outline__leading,
-  .mdc-notched-outline__notch,
-  .mdc-notched-outline__trailing {
-    border-color: rgba(255, 255, 255, 0.6) !important;
-  }
-
-  // Hover esetén se változzon
-
-  .mdc-text-field:hover {
-    .mdc-notched-outline__leading,
-    .mdc-notched-outline__notch,
-    .mdc-notched-outline__trailing {
+  .mdc-notched-outline {
+    &__leading,
+    &__notch,
+    &__trailing {
       border-color: rgba(255, 255, 255, 0.6) !important;
     }
   }
 
-  // Focus
-
-  .mdc-text-field--focused {
-    .mdc-notched-outline__leading,
-    .mdc-notched-outline__notch,
-    .mdc-notched-outline__trailing {
-      border-color: white !important;
+  .mdc-text-field:hover {
+    .mdc-notched-outline {
+      &__leading,
+      &__notch,
+      &__trailing {
+        border-color: rgba(255, 255, 255, 0.6) !important;
+      }
     }
   }
 
-  // Checkbox
-
-  .mdc-form-field {
-    color: white !important;
+  .mdc-text-field--focused {
+    .mdc-notched-outline {
+      &__leading,
+      &__notch,
+      &__trailing {
+        border-color: white !important;
+      }
+    }
   }
 
+  .mdc-form-field,
   .mdc-label {
     color: white !important;
   }
