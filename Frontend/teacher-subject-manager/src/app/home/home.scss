@@ -1,15 +1,3 @@
-mat-progress-spinner {
-  margin: 0 auto;
-}
-
-i {
-  font-weight: 100;
-  color: transparent;
-  background: linear-gradient(#0d4559, #6693f4);
-  background-clip: text;
-  -webkit-background-clip: text;
-}
-
 .my-container {
   margin-top: 5vw;
   display: flex;
@@ -26,6 +14,14 @@ i {
     h1 {
       margin: 0 auto;
       font-size: 60px;
+
+      i {
+        font-weight: 100;
+        color: transparent;
+        background: linear-gradient(#0d4559, #6693f4);
+        background-clip: text;
+        -webkit-background-clip: text;
+      }
     }
 
     h3 {
@@ -34,47 +30,33 @@ i {
     }
   }
 
-  .firstP {
-    font-weight: 200;
-  }
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
 
-  .secondP {
-    font-weight: 600;
-  }
+    mat-card {
+      width: 400px;
+      background: black;
+      transition: transform 0.5s;
 
-  mat-divider {
-    align-self: stretch;
-    width: 100%;
-  }
-}
+      &:hover {
+        transform: translateY(-5px);
+      }
 
-.example-card {
-  max-width: 400px;
-}
+      span {
+        color: white;
+      }
 
-.example-card-footer {
-  padding: 16px;
-}
-
-.content {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
-
-  mat-card {
-    width: 400px;
-    transition: all 0.5s;
-    background: black;
-
-    &:hover {
-      transform: translateY(-5px);
-    }
-
-    span {
-      color: white;
+      mat-card-footer {
+        padding: 16px;
+      }
     }
   }
+}
+
+mat-progress-spinner {
+  margin: 0 auto;
 }
