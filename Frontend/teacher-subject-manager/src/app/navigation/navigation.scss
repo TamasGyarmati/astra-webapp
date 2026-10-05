@@ -6,12 +6,42 @@ $mat-menu-icon-size: 18px;
   height: $mat-menu-icon-size !important;
 }
 
-button {
-  border: 0;
-  transition: all 0.5s;
+nav {
+  button {
+    color: white;
+    border: 0;
+    position: relative;
+    overflow: hidden;
+
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.08);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+}
+
+.mat-mdc-menu-item {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.5s ease;
 
   &:hover {
-    transform: translateY(-3px);
+    background-color: rgba(255, 255, 255, 0.08);
   }
 }
 

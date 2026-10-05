@@ -40,6 +40,16 @@ body {
 }
 
 .cdk-overlay-pane {
+  .mat-mdc-menu-panel {
+    margin-top: 5px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .mat-mdc-menu-content {
+    padding: 0 !important;
+  }
+
   .mat-mdc-menu-item {
     color: white !important;
 
