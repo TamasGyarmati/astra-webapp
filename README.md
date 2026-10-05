@@ -1,4 +1,4 @@
-# Venus
+# Astra
 
 A university subject and teacher management system. The point: create, edit and delete subjects and teachers, and connect the two. Angular frontend, ASP.NET Core backend, MSSQL database, JWT authentication.
 
@@ -13,24 +13,24 @@ A university subject and teacher management system. The point: create, edit and 
 
 ## Technologies
 
-| Layer | Technology | Version |
-| --- | --- | --- |
-| Frontend | Angular (standalone, signals) | 21.2 |
-| Frontend | TypeScript | ~5.9 |
-| Frontend | Angular Material + CDK | 21.2 |
-| Frontend | Bootstrap, GSAP | 5.3 / 3.15 |
-| Frontend | Vitest, jsdom | 4.0 / 28 |
-| Backend | ASP.NET Core | net10.0 |
-| Backend | Entity Framework Core (SqlServer) | 10.0 |
-| Backend | JWT Bearer auth | 10.0 |
-| Backend | Swashbuckle (Swagger UI) | 10.2 |
-| Database | Microsoft SQL Server | 2022 (Docker) |
-| Tooling | npm / .NET CLI | 11.6 / 10.0 |
+| Layer    | Technology                        | Version       |
+| -------- | --------------------------------- | ------------- |
+| Frontend | Angular (standalone, signals)     | 21.2          |
+| Frontend | TypeScript                        | ~5.9          |
+| Frontend | Angular Material + CDK            | 21.2          |
+| Frontend | Bootstrap, GSAP                   | 5.3 / 3.15    |
+| Frontend | Vitest, jsdom                     | 4.0 / 28      |
+| Backend  | ASP.NET Core                      | net10.0       |
+| Backend  | Entity Framework Core (SqlServer) | 10.0          |
+| Backend  | JWT Bearer auth                   | 10.0          |
+| Backend  | Swashbuckle (Swagger UI)          | 10.2          |
+| Database | Microsoft SQL Server              | 2022 (Docker) |
+| Tooling  | npm / .NET CLI                    | 11.6 / 10.0   |
 
 ## Project structure
 
 ```
-Venus/
+Astra/
 ├── Backend/
 │   └── Students/
 │       ├── Students.sln
@@ -66,33 +66,36 @@ Venus/
 
 ## API endpoints
 
-| Method | Path | Description |
-| --- | --- | --- |
-| POST | `/api/auth/register` | registration, 409 if email is taken |
-| POST | `/api/auth/login` | login, returns JWT + expiration |
-| GET | `/api/auth` | list users |
-| GET/POST/PUT/DELETE | `/api/teacher`, `/api/teacher/{id}` | teacher CRUD |
-| GET/POST/PUT/DELETE | `/api/subjects`, `/api/subjects/{id}` | subject CRUD |
-| GET/POST/PUT/DELETE | `/api/students`, `/api/students/{id}` | student CRUD |
-| POST | `/api/school` | link teacher to subject |
-| DELETE | `/api/school` | unlink teacher from subject |
+| Method              | Path                                  | Description                         |
+| ------------------- | ------------------------------------- | ----------------------------------- |
+| POST                | `/api/auth/register`                  | registration, 409 if email is taken |
+| POST                | `/api/auth/login`                     | login, returns JWT + expiration     |
+| GET                 | `/api/auth`                           | list users                          |
+| GET/POST/PUT/DELETE | `/api/teacher`, `/api/teacher/{id}`   | teacher CRUD                        |
+| GET/POST/PUT/DELETE | `/api/subjects`, `/api/subjects/{id}` | subject CRUD                        |
+| GET/POST/PUT/DELETE | `/api/students`, `/api/students/{id}` | student CRUD                        |
+| POST                | `/api/school`                         | link teacher to subject             |
+| DELETE              | `/api/school`                         | unlink teacher from subject         |
 
 Swagger UI: `http://localhost:5500/swagger`
 
 ## Features
 
 **Authentication**
+
 - Register and login, 8 hour JWT lifetime
 - Passwords stored with PBKDF2-SHA256, 100 000 iterations, salt, fixed-time comparison
 - Token and expiration go into `localStorage`, the client checks the session against the expiration date
 - Route guards: every page is protected with `canActivate`, except `home`, `login`, `register`
 
 **Subjects and teachers**
+
 - Full CRUD on both entities, listing, editing, deleting
 - When editing a subject, teachers can be assigned to it
 - When editing a teacher, the subject list is editable too
 
 **Connecting**
+
 - `POST /api/school` can link multiple subjects in one call
 - The response separates the outcome: `added`, `alreadyLinked`, `notFound`
 - The DELETE side breaks the links the same way, with `removed` and `notLinked` lists
@@ -104,19 +107,19 @@ Eight Material cards describing the project: Features, Technologies, UI & Stylin
 
 ### Prerequisites
 
-| Case | Needed |
-| --- | --- |
+| Case          | Needed                                       |
+| ------------- | -------------------------------------------- |
 | Frontend only | Node.js 20+ or 22+ (24 recommended), npm 11+ |
-| Backend only | .NET SDK 10.0 |
-| Full stack | both of the above + Docker Desktop |
+| Backend only  | .NET SDK 10.0                                |
+| Full stack    | both of the above + Docker Desktop           |
 
 The backend targets `net10.0`, so the .NET 9 SDK will not build it.
 
 ### 1. Clone
 
 ```bash
-git clone https://github.com/TamasGyarmati/venus-webapp.git
-cd venus-webapp
+git clone https://github.com/TamasGyarmati/astra-webapp.git
+cd astra-webapp
 ```
 
 ### 2. Database
@@ -178,12 +181,12 @@ Starts on `http://localhost:4200`
 
 ### Ports
 
-| Service | Port |
-| --- | --- |
+| Service                       | Port |
+| ----------------------------- | ---- |
 | Frontend (Angular dev server) | 4200 |
-| Backend (HTTP) | 5500 |
-| Backend (HTTPS) | 7021 |
-| SQL Server | 1433 |
+| Backend (HTTP)                | 5500 |
+| Backend (HTTPS)               | 7021 |
+| SQL Server                    | 1433 |
 
 ### Troubleshooting
 
