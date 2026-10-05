@@ -58,7 +58,6 @@ public class SubjectsController(AppDbContext db) : ControllerBase
     public async Task<IActionResult> UpdateSubject(string id, Subject body)
     {
         var subject = await db.Subjects
-            .Include(x => x.Teachers)
             .FirstOrDefaultAsync(x => x.Id == id);
 
         if (subject is null)
@@ -73,18 +72,6 @@ public class SubjectsController(AppDbContext db) : ControllerBase
         subject.Image = body.Image;
         subject.CreatorName = body.CreatorName;
         subject.RegisteredStudents = body.RegisteredStudents;
-
-        subject.Teachers.Clear();
-
-        foreach (var teacher in body.Teachers)
-        {
-            var existingTeacher = await db.Teachers.FindAsync(teacher.Id);
-
-            if (existingTeacher is not null)
-            {
-                subject.Teachers.Add(existingTeacher);
-            }
-        }
 
         await db.SaveChangesAsync();
 
