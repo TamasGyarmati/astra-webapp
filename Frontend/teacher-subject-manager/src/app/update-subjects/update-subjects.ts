@@ -7,15 +7,17 @@ import { MATERIAL_IMPORTS } from '../_shared/material';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from '../_models/subject';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-update-subjects',
-  imports: [MATERIAL_IMPORTS, FormsModule, FormsModule],
+  imports: [MATERIAL_IMPORTS, FormsModule, FormsModule, CommonModule],
   templateUrl: './update-subjects.html',
   styleUrl: './update-subjects.scss',
 })
 export class UpdateSubjects implements OnInit {
   public subject = signal<Subject>(new Subject());
+  public isLoading = signal<boolean>(true);
   public deleteDisabled: boolean;
 
   constructor(
@@ -34,6 +36,8 @@ export class UpdateSubjects implements OnInit {
       this.http.get<Subject>(`${env.subjectUri}/${subjectId}`).subscribe((resp) => {
         this.subject.set(resp);
       });
+
+      this.isLoading.set(false);
     });
   }
 

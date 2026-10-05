@@ -1,20 +1,22 @@
 import { Subject } from '../_models/subject';
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { env } from '../_env/env';
 import { MATERIAL_IMPORTS } from '../_shared/material';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-subject',
-  imports: [MATERIAL_IMPORTS, FormsModule],
+  imports: [MATERIAL_IMPORTS, FormsModule, CommonModule],
   templateUrl: './create-subject.html',
   styleUrl: './create-subject.scss',
 })
-export class CreateSubject {
+export class CreateSubject implements OnInit {
   public subject: Subject;
+  public isLoading = signal<boolean>(true);
 
   constructor(
     private http: HttpClient,
@@ -22,6 +24,10 @@ export class CreateSubject {
     private matSnackBar: MatSnackBar,
   ) {
     this.subject = new Subject();
+  }
+
+  ngOnInit(): void {
+    this.isLoading.set(false);
   }
 
   createSubject(): void {

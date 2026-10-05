@@ -1,20 +1,23 @@
+import { OnInit } from '@angular/core';
 import { Teacher } from '../_models/teacher';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { env } from '../_env/env';
 import { MATERIAL_IMPORTS } from '../_shared/material';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-teacher',
-  imports: [MATERIAL_IMPORTS, FormsModule],
+  imports: [MATERIAL_IMPORTS, FormsModule, CommonModule],
   templateUrl: './create-teacher.html',
   styleUrl: './create-teacher.scss',
 })
-export class CreateTeacher {
+export class CreateTeacher implements OnInit {
   public teacher: Teacher;
+  public isLoading = signal<boolean>(true);
 
   constructor(
     private http: HttpClient,
@@ -22,6 +25,10 @@ export class CreateTeacher {
     private matSnackBar: MatSnackBar,
   ) {
     this.teacher = new Teacher();
+  }
+
+  ngOnInit(): void {
+    this.isLoading.set(false);
   }
 
   createTeacher(): void {

@@ -3,7 +3,9 @@
     <h1>Manage connections</h1>
   </div>
 
-  <div class="forms">
+  <mat-progress-spinner mode="indeterminate" *ngIf="this.isLoading()"></mat-progress-spinner>
+
+  <div class="forms" *ngIf="!this.isLoading()">
     <mat-form-field appearance="outline">
       <mat-label>Teacher</mat-label>
       <mat-select [(ngModel)]="this.selectedTeacherIdToAdd">
@@ -23,7 +25,7 @@
     </mat-form-field>
   </div>
 
-  <div class="actions">
+  <div class="actions" *ngIf="!this.isLoading()">
     <button class="add-btn" mat-flat-button color="accent" (click)="addConnection()">Add</button>
     <button class="delete-btn" mat-flat-button color="accent" (click)="deleteConnection()">
       Delete

@@ -1,3 +1,4 @@
+import { OnInit } from '@angular/core';
 import { signal } from '@angular/core';
 import { Token as TokenModel } from '../_models/token';
 import { env } from '../_env/env';
@@ -18,9 +19,10 @@ import { ApiService } from '../api.service';
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
-export class Login {
+export class Login implements OnInit {
   public email: FormControl;
   public password: FormControl;
+  public isLoading = signal<boolean>(true);
 
   hide = signal(true);
   clickEvent(event: MouseEvent) {
@@ -36,6 +38,10 @@ export class Login {
   ) {
     this.password = new FormControl('', [Validators.required]);
     this.email = new FormControl('', [Validators.required, Validators.email]);
+  }
+
+  ngOnInit(): void {
+    this.isLoading.set(false);
   }
 
   get getEmailErrorMessage(): string {

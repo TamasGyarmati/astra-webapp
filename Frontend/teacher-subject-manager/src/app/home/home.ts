@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { MATERIAL_IMPORTS } from '../_shared/material';
 import { HomeModel } from '../_models/home';
 import { CommonModule } from '@angular/common';
@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Home {
   public models: Array<HomeModel>;
+  public isLoading = signal<boolean>(true);
 
   constructor() {
     this.models = [
@@ -64,5 +65,7 @@ export class Home {
         chips: ['REST', 'JSON', 'HTTP', 'API'],
       },
     ];
+
+    this.isLoading.set(false);
   }
 }

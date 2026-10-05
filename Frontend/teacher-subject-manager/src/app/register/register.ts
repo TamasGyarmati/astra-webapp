@@ -1,3 +1,4 @@
+import { OnInit } from '@angular/core';
 import { signal } from '@angular/core';
 import { env } from '../_env/env';
 import { HttpClient } from '@angular/common/http';
@@ -15,10 +16,11 @@ import { MATERIAL_IMPORTS } from '../_shared/material';
   templateUrl: './register.html',
   styleUrl: './register.scss',
 })
-export class Register {
+export class Register implements OnInit {
   public email: FormControl;
   public registerModel: RegisterModel;
   public acceptTermsAndConditions: boolean;
+  public isLoading = signal<boolean>(true);
 
   hide = signal(true);
   clickEvent(event: MouseEvent) {
@@ -39,6 +41,10 @@ export class Register {
       firstName: '',
       lastName: '',
     };
+  }
+
+  ngOnInit(): void {
+    this.isLoading.set(false);
   }
 
   get canRegister(): boolean {

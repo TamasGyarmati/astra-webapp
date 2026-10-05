@@ -6,7 +6,8 @@
       experience.
     </h3>
   </div>
-  <div class="content">
+  <mat-progress-spinner mode="indeterminate" *ngIf="this.isLoading()"></mat-progress-spinner>
+  <div class="content" *ngIf="!this.isLoading()">
     <mat-card class="example-card" appearance="outlined" *ngFor="let model of this.models">
       <mat-card-header>
         <mat-card-title> {{ model.title }}</mat-card-title>

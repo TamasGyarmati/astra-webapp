@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 export class ConnectTeacherToSubject implements OnInit {
   public subjects = signal<Subject[]>([]);
   public teachers = signal<Teacher[]>([]);
+  public isLoading = signal<boolean>(true);
   public selectedTeacherIdToRemove: string = '';
   public selectedSubjectIdsToRemove: Array<string> = [];
   public selectedTeacherIdToAdd: string = '';
@@ -69,6 +70,8 @@ export class ConnectTeacherToSubject implements OnInit {
         }),
       );
     });
+
+    this.isLoading.set(false);
   }
 
   public goBack(): void {

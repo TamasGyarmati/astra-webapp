@@ -1,6 +1,8 @@
 <h1>Create Teacher</h1>
 
-<div class="my-container">
+<mat-progress-spinner mode="indeterminate" *ngIf="this.isLoading()"></mat-progress-spinner>
+
+<div class="my-container" *ngIf="!this.isLoading()">
   <mat-form-field appearance="outline">
     <mat-label>Name</mat-label>
     <input matInput [(ngModel)]="this.teacher.name" />

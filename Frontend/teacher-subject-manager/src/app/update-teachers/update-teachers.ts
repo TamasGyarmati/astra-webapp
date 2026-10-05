@@ -7,15 +7,17 @@ import { MATERIAL_IMPORTS } from '../_shared/material';
 import { ActivatedRoute } from '@angular/router';
 import { Teacher } from '../_models/teacher';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-update-teachers',
-  imports: [MATERIAL_IMPORTS, FormsModule, FormsModule],
+  imports: [MATERIAL_IMPORTS, FormsModule, FormsModule, CommonModule],
   templateUrl: './update-teachers.html',
   styleUrl: './update-teachers.scss',
 })
 export class UpdateTeachers implements OnInit {
   public teacher = signal<Teacher>(new Teacher());
+  public isLoading = signal<boolean>(true);
   public deleteDisabled: boolean;
 
   constructor(
@@ -34,6 +36,8 @@ export class UpdateTeachers implements OnInit {
       this.http.get<Teacher>(`${env.teacherUri}/${teacherId}`).subscribe((resp) => {
         this.teacher.set(resp);
       });
+
+      this.isLoading.set(false);
     });
   }
 

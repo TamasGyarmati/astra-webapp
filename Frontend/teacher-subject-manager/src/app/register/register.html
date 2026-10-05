@@ -3,7 +3,9 @@
     <h1>Register</h1>
   </div>
 
-  <div class="forms">
+  <mat-progress-spinner mode="indeterminate" *ngIf="this.isLoading()"></mat-progress-spinner>
+
+  <div class="forms" *ngIf="!this.isLoading()">
     <mat-form-field appearance="outline">
       <mat-label>First name</mat-label>
       <input matInput [(ngModel)]="this.registerModel.firstName" />
@@ -51,11 +53,11 @@
     </mat-checkbox>
   </div>
 
-  <div class="register-link">
+  <div class="register-link" *ngIf="!this.isLoading()">
     <h3>Already have an account? <a [routerLink]="['/login']">Login here!</a></h3>
   </div>
 
-  <div class="actions">
+  <div class="actions" *ngIf="!this.isLoading()">
     <button
       mat-flat-button
       color="accent"

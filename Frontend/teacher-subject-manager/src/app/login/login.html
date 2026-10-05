@@ -3,7 +3,9 @@
     <h1>Login</h1>
   </div>
 
-  <div class="forms">
+  <mat-progress-spinner mode="indeterminate" *ngIf="this.isLoading()"></mat-progress-spinner>
+
+  <div class="forms" *ngIf="!this.isLoading()">
     <mat-form-field appearance="outline">
       <mat-label>Email address</mat-label>
       <input matInput [formControl]="this.email" />
@@ -29,11 +31,11 @@
     </mat-form-field>
   </div>
 
-  <div class="register-link">
+  <div class="register-link" *ngIf="!this.isLoading()">
     <h3>Haven't signed up yet? <a [routerLink]="['/register']">Register here!</a></h3>
   </div>
 
-  <div class="actions">
+  <div class="actions" *ngIf="!this.isLoading()">
     <button
       mat-flat-button
       color="accent"
