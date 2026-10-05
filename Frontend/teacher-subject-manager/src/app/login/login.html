@@ -25,7 +25,10 @@
         [attr.aria-label]="'Hide password'"
         [attr.aria-pressed]="hide()"
       >
-        <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+        <mat-icon
+          style="margin-right: 5px"
+          [fontIcon]="hide() ? 'visibility_off' : 'visibility'"
+        ></mat-icon>
       </button>
       <mat-hint>Your password used during registration</mat-hint>
     </mat-form-field>

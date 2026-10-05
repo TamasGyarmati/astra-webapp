@@ -21,12 +21,7 @@ export class Register implements OnInit {
   public registerModel: RegisterModel;
   public acceptTermsAndConditions: boolean;
   public isLoading = signal<boolean>(true);
-
-  hide = signal(true);
-  clickEvent(event: MouseEvent) {
-    this.hide.set(!this.hide());
-    event.stopPropagation();
-  }
+  public hide = signal<boolean>(true);
 
   constructor(
     private http: HttpClient,
@@ -64,6 +59,11 @@ export class Register implements OnInit {
     }
 
     return this.email.hasError('email') ? 'Not a valid email' : '';
+  }
+
+  clickEvent(event: MouseEvent) {
+    this.hide.set(!this.hide());
+    event.stopPropagation(); // megakadályozza, hogy a kattintási esemény továbbterjedjen a szülőelemekre
   }
 
   sendRegisterCredentials(): void {

@@ -23,12 +23,7 @@ export class Login implements OnInit {
   public email: FormControl;
   public password: FormControl;
   public isLoading = signal<boolean>(true);
-
-  hide = signal(true);
-  clickEvent(event: MouseEvent) {
-    this.hide.set(!this.hide());
-    event.stopPropagation();
-  }
+  public hide = signal<boolean>(true);
 
   constructor(
     private router: Router,
@@ -58,6 +53,11 @@ export class Login implements OnInit {
 
   get formattedEmail(): string {
     return this.email.value.substring(0, this.email.value.indexOf('@'));
+  }
+
+  clickEvent(event: MouseEvent) {
+    this.hide.set(!this.hide());
+    event.stopPropagation(); // megakadályozza, hogy a kattintási esemény továbbterjedjen a szülőelemekre
   }
 
   sendLoginCredentials(): void {
