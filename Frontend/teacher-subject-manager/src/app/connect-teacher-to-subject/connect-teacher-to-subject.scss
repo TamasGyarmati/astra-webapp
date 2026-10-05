@@ -7,21 +7,34 @@ h1 {
   gap: 15px;
   align-items: center;
 
+  .go-back-btn {
+    transition: all 0.5s ease-out;
+
+    &:hover {
+      background-color: #0c315e;
+    }
+  }
+
   .add-btn {
     background-color: #77d460;
+    transition: all 0.5s ease-out;
+
+    &:hover {
+      background-color: #257910;
+    }
   }
 
   .delete-btn {
     background-color: #d32f2f;
+    transition: all 0.5s ease-out;
+
+    &:hover {
+      background-color: #881111;
+    }
   }
 
   button {
     width: 130px;
-    transition: transform 0.5s;
-
-    &:hover {
-      transform: translateY(-5px);
-    }
   }
 }
 

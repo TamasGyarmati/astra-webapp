@@ -31,6 +31,14 @@ mat-progress-spinner {
     max-width: 90%;
   }
 
+  .go-back-btn {
+    transition: all 0.5s ease-out;
+
+    &:hover {
+      background-color: #0c315e;
+    }
+  }
+
   .create-button {
     background-color: #77d460;
     color: white;

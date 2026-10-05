@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { OnInit } from '@angular/core';
 import { Teacher } from '../_models/teacher';
 import { Component, signal } from '@angular/core';
@@ -23,6 +24,7 @@ export class CreateTeacher implements OnInit {
     private http: HttpClient,
     private route: Router,
     private matSnackBar: MatSnackBar,
+    private location: Location,
   ) {
     this.teacher = new Teacher();
   }
@@ -49,5 +51,9 @@ export class CreateTeacher implements OnInit {
         this.matSnackBar.open('Error happened!', 'Close', { duration: 5000 });
       },
     );
+  }
+
+  public goBack(): void {
+    this.location.back();
   }
 }

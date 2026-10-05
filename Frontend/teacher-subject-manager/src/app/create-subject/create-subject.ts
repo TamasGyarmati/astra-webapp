@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Subject } from '../_models/subject';
 import { Component, OnInit, signal } from '@angular/core';
 import { env } from '../_env/env';
@@ -22,6 +23,7 @@ export class CreateSubject implements OnInit {
     private http: HttpClient,
     private route: Router,
     private matSnackBar: MatSnackBar,
+    private location: Location,
   ) {
     this.subject = new Subject();
   }
@@ -48,5 +50,9 @@ export class CreateSubject implements OnInit {
         this.matSnackBar.open('Error happened!', 'Close', { duration: 5000 });
       },
     );
+  }
+
+  public goBack(): void {
+    this.location.back();
   }
 }

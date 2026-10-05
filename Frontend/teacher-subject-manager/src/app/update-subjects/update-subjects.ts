@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { env } from '../_env/env';
 import { Component, OnInit, signal } from '@angular/core';
@@ -25,6 +26,7 @@ export class UpdateSubjects implements OnInit {
     private route: ActivatedRoute,
     private snackBar: MatSnackBar,
     private router: Router,
+    private location: Location,
   ) {
     this.deleteDisabled = true;
   }
@@ -80,5 +82,9 @@ export class UpdateSubjects implements OnInit {
         console.log('::ERROR::', error);
       },
     );
+  }
+
+  public goBack(): void {
+    this.location.back();
   }
 }

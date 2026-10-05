@@ -38,7 +38,10 @@
     <mat-hint>Name of the creator</mat-hint>
   </mat-form-field>
 
-  <button mat-flat-button color="accent" class="create-button" (click)="createTeacher()">
-    Create teacher
-  </button>
+  <div class="buttons">
+    <button mat-flat-button color="accent" class="create-button" (click)="createTeacher()">
+      Create
+    </button>
+    <button class="go-back-btn" mat-flat-button color="accent" (click)="goBack()">Go back</button>
+  </div>
 </div>
