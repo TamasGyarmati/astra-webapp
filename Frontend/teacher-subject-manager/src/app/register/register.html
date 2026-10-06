@@ -22,7 +22,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Email address</mat-label>
-      <input matInput [(ngModel)]="this.registerModel.email" [formControl]="this.email" />
+      <input matInput [formControl]="this.email" />
       <mat-icon matSuffix>email</mat-icon>
       <mat-hint>You valid and working email address</mat-hint>
       <mat-error *ngIf="this.email.invalid">{{ getEmailErrorMessage }}</mat-error>
@@ -30,11 +30,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
-      <input
-        [type]="hide() ? 'password' : 'text'"
-        matInput
-        [(ngModel)]="this.registerModel.password"
-      />
+      <input [type]="hide() ? 'password' : 'text'" matInput [formControl]="this.password" />
       <button
         mat-icon-button
         matSuffix
@@ -49,6 +45,7 @@
         ></mat-icon>
       </button>
       <mat-hint>Your password used during registration</mat-hint>
+      <mat-error *ngIf="this.password.invalid">{{ getPasswordErrorMessage }}</mat-error>
     </mat-form-field>
 
     <mat-checkbox [(ngModel)]="this.acceptTermsAndConditions">

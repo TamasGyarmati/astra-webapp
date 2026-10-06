@@ -18,6 +18,7 @@ import { MATERIAL_IMPORTS } from '../_shared/material';
 })
 export class Register implements OnInit {
   public email: FormControl;
+  public password: FormControl;
   public registerModel: RegisterModel;
   public acceptTermsAndConditions: boolean;
   public isLoading = signal<boolean>(true);
@@ -30,6 +31,7 @@ export class Register implements OnInit {
   ) {
     this.acceptTermsAndConditions = false;
     this.email = new FormControl('', [Validators.required, Validators.email]);
+    this.password = new FormControl('', [Validators.required]);
     this.registerModel = {
       email: '',
       password: '',
@@ -47,8 +49,8 @@ export class Register implements OnInit {
       this.acceptTermsAndConditions &&
       this.registerModel.firstName.trim() !== '' &&
       this.registerModel.lastName.trim() !== '' &&
-      this.registerModel.email.trim() !== '' &&
-      this.registerModel.password.trim() !== '' &&
+      this.email.valid &&
+      this.password.valid &&
       !this.email.hasError('email')
     );
   }
@@ -61,13 +63,28 @@ export class Register implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
+  get getPasswordErrorMessage(): string {
+    if (this.password.hasError('required')) {
+      return 'You must enter a value!';
+    }
+
+    return this.password.hasError('password') ? 'Not a valid password' : '';
+  }
+
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
     event.stopPropagation(); // megakadályozza, hogy a kattintási esemény továbbterjedjen a szülőelemekre
   }
 
   sendRegisterCredentials(): void {
-    this.http.put(`${env.authUri}/register`, this.registerModel).subscribe(
+    const registerRequestDto: RegisterModel = {
+      email: this.email.value ?? '',
+      password: this.password.value ?? '',
+      firstName: this.registerModel.firstName,
+      lastName: this.registerModel.lastName,
+    };
+
+    this.http.put(`${env.authUri}/register`, registerRequestDto).subscribe(
       (success) => {
         this.snackBar
           .open('Register was successful!', 'Close', { duration: 5000 })

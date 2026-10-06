@@ -47,6 +47,14 @@ export class Login implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
+  get getPasswordErrorMessage(): string {
+    if (this.password.hasError('required')) {
+      return 'You must enter a value!';
+    }
+
+    return this.password.hasError('password') ? 'Not a valid password' : '';
+  }
+
   get checkInput(): boolean {
     return this.email.valid && this.password.valid;
   }
