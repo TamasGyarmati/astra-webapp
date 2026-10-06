@@ -1,3 +1,5 @@
+@import '../_shared/variables.scss';
+
 .my-container {
   display: flex;
   flex-direction: column;
@@ -18,7 +20,7 @@
     gap: 15px;
 
     mat-form-field {
-      width: 400px;
+      width: $global-input-width;
 
       input {
         color: white;
@@ -58,12 +60,16 @@
       border-radius: 5px;
 
       &:disabled {
-        background: rgba(255, 255, 255, 0.15) !important;
-        color: rgba(255, 255, 255, 0.5) !important;
+        background: $disabled-btn-background-color;
+        color: $disabled-btn-color;
         cursor: not-allowed;
       }
     }
   }
+}
+
+mat-progress-spinner {
+  margin: 0 auto;
 }
 
 button[mat-icon-button] {
@@ -77,10 +83,6 @@ button[mat-icon-button] {
   --mat-icon-button-hover-state-layer-opacity: 0;
   --mat-icon-button-focus-state-layer-opacity: 0;
   --mat-icon-button-pressed-state-layer-opacity: 0;
-}
-
-mat-progress-spinner {
-  margin: 0 auto;
 }
 
 ::ng-deep {

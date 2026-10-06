@@ -1,3 +1,5 @@
+@import '../_shared/variables.scss';
+
 .header {
   display: flex;
   flex-direction: row;
@@ -44,19 +46,19 @@
   transition: background-color 0.5s ease-out;
 
   &:hover {
-    background-color: #103f79;
+    background-color: $go-back-btn-hover-color;
   }
 }
 
 .connect-button {
-  background-color: #2c77da;
+  background-color: $go-back-btn-color;
 }
 
 .create-button {
-  background-color: #77d460;
+  background-color: $add-btn-color;
 
   &:hover {
-    background-color: #257910;
+    background-color: $add-btn-hover-color;
   }
 }
 

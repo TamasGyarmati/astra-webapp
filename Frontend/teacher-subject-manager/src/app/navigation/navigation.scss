@@ -1,4 +1,4 @@
-$mat-menu-icon-size: 18px;
+@import '../_shared/variables.scss';
 
 .mat-mdc-menu-item .mat-icon {
   width: $mat-menu-icon-size !important;

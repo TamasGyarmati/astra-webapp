@@ -1,3 +1,5 @@
+@import '../_shared/variables.scss';
+
 h1 {
   margin-bottom: 20px;
   text-align: center;
@@ -26,7 +28,7 @@ mat-progress-spinner {
   gap: 30px;
 
   mat-form-field {
-    width: 30vw;
+    width: $global-input-width;
     max-width: 90%;
   }
 
@@ -39,37 +41,39 @@ mat-progress-spinner {
   }
 
   .go-back-btn {
+    background-color: $go-back-btn-color;
+
     &:hover {
-      background-color: #0c315e;
+      background-color: $go-back-btn-hover-color;
     }
   }
 
   .create-button {
-    background-color: #77d460;
+    background-color: $add-btn-color;
 
     &:hover {
-      background-color: #257910;
+      background-color: $add-btn-hover-color;
     }
   }
 
   .delete-button {
-    background-color: #d32f2f;
+    background-color: $delete-btn-color;
 
     &:hover {
-      background-color: #881111;
+      background-color: $delete-btn-hover-color;
     }
 
     &:disabled {
-      background-color: #bdbdbd;
-      color: #757575;
+      color: $disabled-btn-color;
+      background-color: $disabled-btn-background-color;
     }
   }
 
   .edit-button {
-    background-color: #ffc83e;
+    background-color: $edit-btn-color;
 
     &:hover {
-      background-color: #c79003;
+      background-color: $edit-btn-hover-color;
     }
   }
 }

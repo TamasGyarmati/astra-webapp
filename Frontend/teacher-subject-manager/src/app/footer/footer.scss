@@ -2,8 +2,8 @@ h3 {
   margin-top: 22vh;
 }
 
-.linkedinParagraph,
-.mailParagraph {
+#linkedin-paragraph,
+#mail-paragraph {
   transition: all 0.5s;
 
   &:hover {
@@ -11,21 +11,20 @@ h3 {
   }
 }
 
-.mail,
-.linkedin {
+#mail,
+#linkedin {
   text-decoration: none;
   color: white;
 }
 
-.mail-icon,
-.linkedin-icon {
+#mail-icon,
+#linkedin-icon {
   padding-right: 15px;
 }
 
 footer {
   padding: 50px 100px;
   text-align: center;
-  /*backdrop-filter: blur(50px);*/
 
   .info {
     display: flex;

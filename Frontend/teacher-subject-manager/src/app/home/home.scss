@@ -1,9 +1,8 @@
 .my-container {
-  margin-top: 5vw;
+  margin-top: 11vh;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  gap: 80px;
+  gap: 50px;
 
   .heading {
     display: flex;
@@ -20,7 +19,6 @@
         color: transparent;
         background: linear-gradient(#0d4559, #6693f4);
         background-clip: text;
-        -webkit-background-clip: text;
       }
     }
 
@@ -39,7 +37,10 @@
 
     mat-card {
       width: 400px;
-      background: black;
+      background: rgba(15, 23, 42, 0.55) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 0;
       transition: transform 0.5s;
 
       &:hover {

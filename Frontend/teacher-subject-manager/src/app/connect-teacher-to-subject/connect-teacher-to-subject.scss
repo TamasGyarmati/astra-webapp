@@ -1,3 +1,5 @@
+@import '../_shared/variables.scss';
+
 .my-container {
   display: flex;
   flex-direction: column;
@@ -11,7 +13,7 @@
   }
 
   .forms {
-    width: 25%;
+    width: $global-input-width;
 
     mat-form-field {
       width: 100%;
@@ -30,23 +32,23 @@
 
     .go-back-btn {
       &:hover {
-        background-color: #0c315e;
+        background-color: $go-back-btn-hover-color;
       }
     }
 
     .add-btn {
-      background-color: #77d460;
+      background-color: $add-btn-color;
 
       &:hover {
-        background-color: #257910;
+        background-color: $add-btn-hover-color;
       }
     }
 
     .delete-btn {
-      background-color: #d32f2f;
+      background-color: $delete-btn-color;
 
       &:hover {
-        background-color: #881111;
+        background-color: $delete-btn-hover-color;
       }
     }
   }
