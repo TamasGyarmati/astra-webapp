@@ -2,7 +2,7 @@
 
 A university subject and teacher management system. The point: create, edit and delete subjects and teachers, and connect the two. Angular frontend, ASP.NET Core backend, MSSQL database, JWT authentication.
 
-[!Astra](astra.png)
+![Astra](astra.png)
 
 ## Contents
 
